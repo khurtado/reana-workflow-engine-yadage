@@ -4,12 +4,24 @@
 # REANA is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-FROM fedora:25
-RUN dnf -y update && \
-    dnf install -y gcc gcc-c++ graphviz-devel ImageMagick python-devel libffi-devel openssl openssl-devel openssh-clients unzip nano autoconf automake libtool python-pip git &&\
-    dnf install -y dnf redhat-rpm-config
+FROM python:2.7-slim
 
-RUN pip install --upgrade pip
+ENV TERM=xterm
+RUN apt-get update && \
+    apt-get install -y \
+      autoconf \
+      automake \
+      gcc \
+      graphviz-dev \
+      imagemagick \
+      libffi-dev \
+      libtool \
+      openssl \
+      python-dev \
+      python-pip \
+      unzip \
+      vim-tiny && \
+    pip install --upgrade pip
 
 COPY CHANGES.rst README.rst setup.py /code/
 COPY reana_workflow_engine_yadage/version.py /code/reana_workflow_engine_yadage/
