@@ -21,7 +21,7 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
-    'isort>=4.2.9',
+    'isort>=4.2.2,<4.3',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
@@ -49,13 +49,12 @@ setup_requires = [
 
 install_requires = [
     'adage==0.8.5',
-    'celery>=4.2.1,<4.3',
+    'celery>=4.1.0,<4.3',
     'click>=7,<8',
     'enum34>=1.1.6',
     'packtivity==0.10.0',
-    'pyzmq==16.0.2',
     'pyOpenSSL==17.5.0',  # FIXME remove once yadage-schemas solves deps.
-    'reana-commons[kubernetes]>=0.5.0.dev20190220,<0.6.0',
+    'reana-commons[kubernetes]>=0.5.0.dev20190402,<0.6.0',
     'requests==2.20.0',
     'rfc3987==1.3.7',  # FIXME remove once yadage-schemas solves deps.
     'strict-rfc3339==0.7',  # FIXME remove once yadage-schemas solves deps.
